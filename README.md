@@ -22,8 +22,8 @@ service immediately to integrate all of those later.
 ![Screenshot03](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot03.jpg)
 
 You also have the possibility to select the cloud vendor underneath and many other settings. 
-For this demo you can go with whatever you want. The setup for Grafana and InfluxDB is similar but
-you just give it a name and go with the defaults.
+For this demo you can go with whatever you want. The setup for Grafana and InfluxDB is similar.
+Choose your prefered name and go with the defaults.
 
 ![Screenshot04](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot04.jpg)
 
