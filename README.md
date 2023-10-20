@@ -1,11 +1,11 @@
 # How to create a quick Kafka example with Aiven
 
-This tutorial should show how to create a quick example setup for using the Kafka platform in
+This tutorial shows you how to create a quick example setup for using the Kafka platform in
 the Aiven Cloud offering including proper monitoring with a Grafana dashboard.
 
 ## Sign up to Aiven using the free tier offering
 
-You can register for free on the Aiven web console and use a free tier offering which allows
+You can register for free on the Aiven web console and use a free tier offering which allows you
 to use the services for a particular time to evaluate it.
 
 ![Screenshot01](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot01.jpg)
@@ -21,13 +21,13 @@ service immediately to integrate all of those later.
 
 ![Screenshot03](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot03.jpg)
 
-You also have the possibility to select the cloud vendor underneath and many other settings. 
-For this demo you can go with whatever you want. The setup for Grafana and InfluxDB is similar.
+You have the possibility to select the cloud vendor underneath and many other settings. 
+For this demo, you can go with the default settings. The setup for Grafana and InfluxDB is similar.
 Choose your prefered name and go with the defaults.
 
 ![Screenshot04](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot04.jpg)
 
-Now you can observe the creation and the status of all services in the "Services" page and wait a few moments
+Now you can observe the creation and the status of all services in the "Services" page. Wait a few moments
 until everything is deployed and in green status "Running" to be sure that everything is ready to go.
 
 ![Screenshot05](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot05.jpg)
@@ -38,17 +38,16 @@ For the Kafka service please got to the "Topics" page and create one topic with 
 
 ## Use an easy example like reviewable in the attached Python script aiven.py
 
-Now with the Kafka service and one topic in place you can send data it. As an example
-you may use the included script 
+Now with the Kafka service and one topic in place you can send data. As an example you may use the included script 
 
 https://github.com/dkrautschick/aiven/blob/main/aiven.py
 
 For the connection you have to check out the connection data on the service page in the 
-Aiven console. Additionally you have to put the encryption and certificate files to the
+Aiven console. Additionally you have to put the encryption and certificate files in the
 correct location. For this example place the certificates in the same location where 
 you've saved the python script. 
 
-Just copy the connection details in the console and download the files and store them to your
+Just copy the connection details in the console, download the files and store them to your
 location of choice.
 
 ![Screenshot06](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot06.jpg)
@@ -65,7 +64,7 @@ drwx------. 35 postgres postgres 4.0K Oct 19 21:28 ..
 ```
 
 The connection information has to be inserted in the part where the Kafka connection
-is initiated in the script like you can see in the code snipplet
+is initiated. Please review the code snippet below.
 
 ```
 #init Kafka connection 
@@ -78,7 +77,7 @@ producer = KafkaProducer(
  ssl_keyfile="./service.key",
 ```
 
-You also have to change the name of your topic in the script. In my example the topic name
+You now have to change the name of your topic in the script. In my example the topic name
 is called "dirk".
 
 ```
@@ -92,8 +91,8 @@ is called "dirk".
 ...
 ```
 
-It may be necessary to add some modules depending how prepared your station is.
-At least you have to install the kafka and the random module to run the script.
+As a prerequisite, you need to have the Kafka and Random module installed on your
+workstation to be able to run the script. Review the code snippet below for details.
 
 ```
 ...
@@ -104,8 +103,8 @@ At least you have to install the kafka and the random module to run the script.
 
 ## Run the script on any Linux box prepared for Python
 
-If everything is ready you can simply start the script. It will go over a loop with a bit
-waiting time so that you can see and observe progress for some time.
+If everything is ready you can simply start the script. It will go over a loop with a built in 
+pause. This allows you to observe the progress of the script.
 
 ```
 # python3 aiven.py
@@ -114,19 +113,20 @@ waiting time so that you can see and observe progress for some time.
 
 ## Review the results of the Kafka console
 
-Now with some data in Kafka you can use the Kafka page to observe and review the content in the related topics
-In the sidebar of the Kafka service page you can open the "Topics" page and click on the topic you've used in your script.
+Now you have some data in your Kafka project. You can use the Kafka page to observe and review the
+content in the related topics. Please use the sidebar of the Kafka service page to open the "Topics" page.
+Click on the topic you have used in your script to review the details.
 
 ![Screenshot07](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot07.jpg)
 
-First you get an overview for the topic with some configuration possibilities. We are interested what is already
+First you get an overview of the topic with some configuration possibilities. We are interested what is already
 in the queue so we click on "Messages"
 
 ![Screenshot08](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot08.jpg)
 
-On the "Messages" page you can review the existing messages. For refreshing the view just click on "Fetch Messages"
-and depending what you want to see tick "Decode from base64" to see the complete content in plain text for our example when
-you tick the drop down arrow on the message.
+On the "Messages" page you can review the existing messages. For refreshing the view, just click on "Fetch Messages".
+Depending on what you want to see, tick "Decode from base64" to see the complete content in plain text. In our example,
+you can click the drop down arrow in the message.
 
 As you can see the exmplae script is sending some messages with an unique ID, some x and y coordinates from a 
 sensor and a timestamp with a date. 
@@ -137,7 +137,7 @@ So now you have now a example Kafka setup with one topic and one producer sendin
 
 ## Attach a InfluxDB and Grafana service for monitoring the Kafka setup
 
-With the Kafka setup no running we want to add some monitoring capabilites. For this we have to integrate all three
+With the Kafka setup now running, we want to add some monitoring capabilites. For this we have to integrate all three
 created services together in 2 steps.
 
 First we go to the "Integrations" page of the Kafka service and select "Store Metrics" to connect the Influx database
