@@ -33,14 +33,18 @@ producer = KafkaProducer(
  value_serializer=lambda v: json.dumps(v).encode('ascii')
 )
 
-# create uuid 
+# init loop for several objects 
 
 for loop in range(0, loopLength):
 
+# define data content 
+
    uniqueIdentifier = uuid.uuid4()
-   sensorDataX = random()
-   sensorDataY = random()
+   sensorDataX = random.randint(0,100)
+   sensorDataY = random.randint(0,100)
    payloadDate = date.today()
+ 
+# Kafka upload 
    
    producer.send(
     'dirk',
