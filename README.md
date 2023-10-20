@@ -3,7 +3,7 @@
 ## Sign in to Aiven using the free tier offering
 
 ## create a Kafka service
-![kafka service](screenshots/Screenshot from 2023-10-20 00-47-50.png)
+![kafka service](https://github.com/dkrautschick/aiven/blob/main/screenshots/Screenshot%20from%202023-10-20%2000-47-50.png)
 
 
 ## Take an easy example like reviewable in the attached Python script aiven.py
