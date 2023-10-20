@@ -1,5 +1,8 @@
 # How to create a quick Kafka example with Aiven
 
+This tutorial should show how to create a quick example setup for using the Kafka platform in
+the Aiven Cloud offering including proper monitoring with a Grafana dashboard.
+
 ## Sign up to Aiven using the free tier offering
 
 You can register for free on the Aiven web console and use a free tier offering which allows
@@ -110,15 +113,25 @@ waiting time so that you can see and observe progress for some time.
 ## Review the results of the Kafka console
 
 Now with some data in Kafka you can use the Kafka page to observe and review the content in the related topics
-In the sidebar of the Kafka service page you can open the "Topics" page and click on the topic you use in your script.
+In the sidebar of the Kafka service page you can open the "Topics" page and click on the topic you've used in your script.
 
 ![Screenshot07](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot07.jpg)
 
-
+First you get an overview for the topic with some configuration possibilities. We are interested what is already
+in the queue so we click on "Messages"
 
 ![Screenshot08](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot08.jpg)
 
+On the "Messages" page you can review the existing messages. For refreshing the view just click on "Fetch Messages"
+and depending what you want to see tick "Decode from base64" to see the complete content in plain text for our example when
+you tick the drop down arrow on the message.
+
+As you can see the exmplae script is sending some messages with an unique ID, some x and y coordinates from a 
+sensor and a timestamp with a date. 
+
 ![Screenshot09](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot09.jpg)
+
+So now you have now a example Kafka setup with one topic and one producer sending messages. So far so good!
 
 ## Attach a InfluxDB and Grafana service for monitoring the Kafka setup
 
