@@ -2,7 +2,7 @@
 
 ## Sign up to Aiven using the free tier offering
 
-![Screenshot01](https://github.com/dkrautschick/aiven/screenshots/AivenKafkaWalkThrough_screenshot01.jpg)
+![Screenshot01](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot01.jpg)
 
 ## create the relevant services
 
