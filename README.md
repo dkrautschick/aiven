@@ -2,19 +2,36 @@
 
 ## Sign up to Aiven using the free tier offering
 
+You can register for free on the Aiven web console and use a free tier offering which allows
+to use the services for a particular time to evaluate it.
+
 ![Screenshot01](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot01.jpg)
 
 ## create the relevant services
 
+After creating your account and login you can create services.
+
 ![Screenshot02](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot02.jpg)
-...
+
+At least create a Kafka service with a name of your choice. I recommend also to create the InfluxDB and Grafana
+service immediately to integrate all of those later. 
 
 ![Screenshot03](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot03.jpg)
 
+You also have the possibility to select the cloud vendor underneath and many other settings. 
+For this demo you can go with whatever you want. The setup for Grafana and InfluxDB is similar but
+you just give it a name and go with the defaults.
+
 ![Screenshot04](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot04.jpg)
+
+Now you can observe the creation and the status of all services in the "Services" page and wait a few moments
+until everything is deployed and in green status "Running" to be sure that everything is ready to go.
 
 ![Screenshot05](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot05.jpg)
 
+For the Kafka service please got to the "Topics" page and create one topic with a name of your choice.
+
+![Screenshot07](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot07.jpg)
 
 ## Use an easy example like reviewable in the attached Python script aiven.py
 
@@ -56,6 +73,20 @@ producer = KafkaProducer(
  ssl_keyfile="./service.key",
 ```
 
+You also have to change the name of your topic in the script. In my example the topic name
+is called "dirk".
+
+```
+...
+# Kafka upload 
+   
+   producer.send(
+    'dirk',
+    value=
+       {
+...
+```
+
 It may be necessary to add some modules depending how prepared your station is.
 At least you have to install the kafka and the random module to run the script.
 
@@ -78,7 +109,12 @@ waiting time so that you can see and observe progress for some time.
 
 ## Review the results of the Kafka console
 
+Now with some data in Kafka you can use the Kafka page to observe and review the content in the related topics
+In the sidebar of the Kafka service page you can open the "Topics" page and click on the topic you use in your script.
+
 ![Screenshot07](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot07.jpg)
+
+
 
 ![Screenshot08](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot08.jpg)
 
@@ -86,15 +122,32 @@ waiting time so that you can see and observe progress for some time.
 
 ## Attach a InfluxDB and Grafana service for monitoring the Kafka setup
 
+With the Kafka setup no running we want to add some monitoring capabilites. For this we have to integrate all three
+created services together in 2 steps.
+
+First we go to the "Integrations" page of the Kafka service and select "Store Metrics" to connect the Influx database
+as a time-series database storing the monitoring metrics. Just select the created service in the collection.
+
 ![Screenshot10](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot10.jpg)
+
+The second step is to open the "Integration" page from the Grafana service and add a "Grafana Metrics Dashboard"
+to connect the InfluxDB as a source for the whole monitoring metric data.
 
 ![Screenshot11](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot11.jpg)
 
 ## Connect to Grafana and enjoy the prepared dashboard for monitoring
 
+After integrating all services together you can now go to the Grafana service and open the monitoring part.
+The link to the Grafana platform is noted on the main page of the service. On the same page you'll also find 
+the login credentials which you can easily copy to login into Grafana
+
 ![Screenshot12](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot12.jpg)
 
+After login you can simply search vor "Aiven Kaf" to quickly find the predefined Dashboard and open it. 
+
 ![Screenshot13](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot13.jpg)
+
+That will lead to a monitoring overview where you can check the environment in realtime.
 
 ![Screenshot14](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot14.jpg)
 
