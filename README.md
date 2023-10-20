@@ -45,9 +45,11 @@ https://github.com/dkrautschick/aiven/blob/main/aiven.py
 
 For the connection you have to check out the connection data on the service page in the 
 Aiven console. Additionally you have to put the encryption and certificate files to the
-correct location. For the example scripts those has to be located at the same location as
-the script itself. You can easy copy/paste the connection details in the console and download
-the files and put it to the related location.
+correct location. For this example place the certificates in the same location where 
+you've saved the python script. 
+
+Just copy the connection details in the console and download the files and store them to your
+location of choice.
 
 ![Screenshot06](https://github.com/dkrautschick/aiven/blob/main/screenshots/AivenKafkaWalkThrough_screenshot06.jpg)
 
